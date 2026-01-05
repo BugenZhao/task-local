@@ -9,6 +9,7 @@ async fn nested_function() {
     // Access task-local values from the parent scope
     println!("In nested_function: NUMBER = {}", NUMBER.get());
     println!("In nested_function: MESSAGE = {}", MESSAGE.get());
+    println!("In nested_function: MESSAGE = {:?}", MESSAGE.try_get());
 }
 
 async fn example() {
@@ -41,6 +42,7 @@ async fn example() {
     // Outside of the scope, the values are no longer accessible
     // Uncommenting the following line would panic:
     // println!("NUMBER = {}", NUMBER.get());
+    println!("NUMBER = {:?}", NUMBER.try_get());
 }
 
 // Example of using sync_scope for synchronous code

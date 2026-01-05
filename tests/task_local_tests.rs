@@ -11,22 +11,27 @@ async fn test_basic_functionality() {
     NUMBER
         .scope(42, async {
             assert_eq!(NUMBER.get(), 42);
+            assert_eq!(NUMBER.try_get(), Ok(42));
         })
         .await;
+    NUMBER.try_get().unwrap_err();
 
     // Test nested scopes
     NUMBER
         .scope(1, async {
             assert_eq!(NUMBER.get(), 1);
+            assert_eq!(NUMBER.try_get(), Ok(1));
 
             NUMBER
                 .scope(2, async {
                     assert_eq!(NUMBER.get(), 2);
+                    assert_eq!(NUMBER.try_get(), Ok(2));
                 })
                 .await;
 
             // Original value should be restored
             assert_eq!(NUMBER.get(), 1);
+            assert_eq!(NUMBER.try_get(), Ok(1));
         })
         .await;
 }
@@ -88,6 +93,7 @@ fn test_sync_scope() {
     // Test synchronous scope
     NUMBER.sync_scope(42, || {
         assert_eq!(NUMBER.get(), 42);
+        assert_eq!(NUMBER.try_get(), Ok(42));
     });
 
     // Test nested synchronous scopes
