@@ -19,7 +19,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-task-local = "0.1.0"
+task-local = "0.1.1"
 ```
 
 ## Example

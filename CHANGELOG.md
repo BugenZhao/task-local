@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-03-27
+
+### Added
+- `LocalKey::try_get` method for non-panicking access to cloneable task-local values
+
 ## [0.1.0] - 2025-03-25
 
 ### Added

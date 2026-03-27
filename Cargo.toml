@@ -1,6 +1,6 @@
 [package]
 name = "task-local"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Task-local storage for asynchronous tasks"
 license = "MIT OR Apache-2.0"
